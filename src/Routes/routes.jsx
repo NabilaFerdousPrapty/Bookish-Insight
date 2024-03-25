@@ -5,10 +5,12 @@ import ListedBooks from './../Pages/ListedBooks/ListedBooks';
 import PagesToRead from "../Pages/PagesToRead/PagesToRead";
 import SubscribeToUs from './../Pages/SubscribeToUs/SubscribeToUs';
 import Review from './../Pages/Reviews/Review';
+import ErrorPage from "../Pages/Error/ErrorPage";
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayouts/>,
+      errorElement:<ErrorPage/>,
       children:[
         {
             path:'/',
