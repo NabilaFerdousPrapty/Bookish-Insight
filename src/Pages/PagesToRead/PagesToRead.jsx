@@ -35,8 +35,8 @@ const PagesChart = () => {
   return (
     <div className="lg:max-w-screen-lg max-w-screen-md  mx-auto lg:px-3">
         <BarChart 
-    width={window.innerWidth > 768 ? 1000 : window.innerWidth * 0.8}
-    height={window.innerWidth > 768 ? 400 : window.innerWidth * 0.5}
+    width={window.innerWidth > 768 ? 1000 : window.innerWidth * 1}
+    height={window.innerWidth > 768 ? 400 : window.innerWidth * 0.8}
       data={readBooks}
       margin={{
         top: 20,

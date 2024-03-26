@@ -44,10 +44,20 @@ export const router = createBrowserRouter([
         },{
             path:'/Reviews',
             element:<Review/>
-        },{
+        },
+        {
             path:'/bookDetail/:bookId',
             element:<SingleBookDetail></SingleBookDetail>,
             loader:(()=>(fetch('/AllBooks.json')))
+        },
+        {
+            path:'listedBooks/read/:bookId',
+            element:<SingleBookDetail></SingleBookDetail>,
+            loader:(()=>(fetch('./AllBooks.json'))),
+        },{
+            path:'wishlist/:bookId',
+            element:<SingleBookDetail></SingleBookDetail>,
+            loader:(()=>(fetch('./AllBooks.json'))),
         }
       ]
     },

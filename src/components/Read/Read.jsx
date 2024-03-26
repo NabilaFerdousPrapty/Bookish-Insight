@@ -2,7 +2,7 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { ImPageBreak } from "react-icons/im";
 import { Link } from "react-router-dom";
 const Read = ({readBook}) => {
-  const {image,bookName,tags,publisher,totalPages,category ,rating}=readBook;
+  const {image,bookName,tags,publisher,totalPages,category ,rating,bookId}=readBook;
     return (
         <div className="flex md:flex-row flex-col lg:w-full w-auto space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl m-4 gap-5">
         <img
@@ -46,7 +46,7 @@ const Read = ({readBook}) => {
              
               <span>{rating}</span>
             </button>
-            <Link><button className="btn bg-[#23BE0A] rounded-2xl">View Details</button></Link>
+            <Link to={`/bookDetail/${bookId}`} ><button className="btn bg-[#23BE0A] rounded-2xl">View Details</button></Link>
           </div>
         </div>
       </div>
