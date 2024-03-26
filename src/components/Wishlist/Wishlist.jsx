@@ -1,8 +1,9 @@
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { ImPageBreak } from "react-icons/im";
 import { Link } from "react-router-dom";
-const Read = ({readBook}) => {
-  const {image,bookName,tags,publisher,totalPages,category ,rating}=readBook;
+
+const Wishlist = ({wishlistBook}) => {
+    const {image,bookName,tags,publisher,totalPages,category ,rating}=wishlistBook;
     return (
         <div className="flex w-full space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl m-4 gap-5">
         <img
@@ -53,4 +54,4 @@ const Read = ({readBook}) => {
     );
 };
 
-export default Read;
+export default Wishlist;

@@ -3,7 +3,7 @@ import { useState } from "react"
 import BookDetail from "../BookDetail/BookDetail";
 
 
-export const AllBooks = () => {
+export const AllBooks = () => {  
   const [allBooks,setAllBooks]=useState([]);
   useEffect(()=>{
     fetch('./AllBooks.json')
