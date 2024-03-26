@@ -2,9 +2,9 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { ImPageBreak } from "react-icons/im";
 import { Link } from "react-router-dom";
 const Read = ({readBook}) => {
-  const {image,bookName,tags,publisher,totalPages,category ,rating,bookId}=readBook;
+  const {image,bookName,tags,publisher,totalPages,category ,rating,bookId,yearOfPublishing}=readBook;
     return (
-        <div className="flex md:flex-row flex-col lg:w-full w-auto space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl m-4 gap-5">
+        <div className="flex md:flex-row flex-col lg:w-full w-auto space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl md:m-4 m-1 gap-5">
         <img
           className="flex-shrink-0 md: h-56 md:w-48 sm:w-32 sm:h-32 bg-[#1313130D] "
           src={image}
@@ -16,15 +16,16 @@ const Read = ({readBook}) => {
               <h3 className="text-lg font-semibold leading-snug sm:pr-8">
                 {bookName}
               </h3>
-              <div className="flex justify-between items-center gap-5 font-bold">
+              <div className="flex justify-between items-center md:gap-5 gap-2 font-bold">
               <p  className="text-sm text-gray-400 font-bold">Tag</p>
               {
-                tags.map((tag,idx)=><p tag={tag}  key={idx} className="text-sm text-[#23BE0A] bg-[#1313130D] p-3 rounded-2xl">{tag}</p>)
+                tags.map((tag,idx)=><p tag={tag}  key={idx} className="text-sm text-[#23BE0A] bg-[#1313130D] md:p-3 rounded-2xl">{tag}</p>)
               }
+              <p>Year of Publishing:{yearOfPublishing}</p>
               </div>
-              <div className=" justify-between items-center flex gap-6">
-                <p className="flex gap-3 items-center justify-between justify-between"><IoPersonCircleSharp />Publisher: {publisher}</p>
-                <p className="flex gap-3 items-center"><ImPageBreak />Page:{totalPages} </p>
+              <div className=" justify-between items-center md:flex md:gap-6">
+                <p className="md:flex md:gap-3 items-center justify-between "><IoPersonCircleSharp />Publisher: {publisher}</p>
+                <p className="flex md:gap-3 items-center"><ImPageBreak />Page:{totalPages} </p>
               </div>
               
             </div>

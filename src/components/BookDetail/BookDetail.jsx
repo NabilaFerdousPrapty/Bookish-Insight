@@ -28,9 +28,9 @@ const BookDetail = ({ book }) => {
         </h2>
         <p className="font-medium space-x-2">By: {author}</p>
       </div>
-      <div className="flex justify-between items-center font-medium">
+      <div className="md:flex justify-between items-center font-medium">
         <p >{category}</p>
-        <p className="flex items-center gap-2">{rating}<FaRegStarHalfStroke /></p>
+        <p className="md:flex items-center gap-2">{rating}<FaRegStarHalfStroke /></p>
       </div>
     </Link>
   );

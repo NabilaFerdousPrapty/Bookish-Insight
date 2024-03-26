@@ -12,6 +12,7 @@ const Wishlist = ({ wishlistBook }) => {
     category,
     rating,
     bookId,
+    yearOfPublishing
   } = wishlistBook;
   return (
     <div className="flex md:flex-row flex-col lg:w-full w-auto space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl m-4 gap-5">
@@ -36,7 +37,9 @@ const Wishlist = ({ wishlistBook }) => {
                 >
                   {tag}
                 </p>
+                
               ))}
+               <p>Year of Publishing:{yearOfPublishing}</p>
             </div>
             <div className=" justify-between items-center flex gap-6">
               <p className="flex gap-3 items-center justify-between justify-between">

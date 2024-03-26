@@ -1,10 +1,35 @@
-import { useState } from "react";
-
-import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const ListedBooks = () => {
+  const location = useLocation();
   const [tabIndex, setTabIndex] = useState(0);
-  
+  const [sortBy, setSortBy] = useState('');
+  const [displayBooks,setDisplayBooks]=useState([])
+// console.log(sortBy);
+  const handleSortByChange = (event) => {
+    setSortBy(event.target.value);
+  };
+  const handleBooksFilter=(sortBy)=>{
+    if (sortBy=='rating') {
+     const sortedRating=readBooks.sort((a,b)=>b.rating-a.rating);
+     setDisplayBooks(sortedRating);
+    }else if(sortBy=='totalPages'){
+      const sortedPages=readBooks.sort((a,b)=>b.totalPages-a.totalPages);
+      setDisplayBooks(sortedPages)
+    }else if(sortBy =='publishedYear'){
+     const sortedYear=readBooks.sort((a,b)=>b.yearOfPublishing-a.yearOfPublishing);
+     setDisplayBooks(sortedYear)
+    }
+}
+
+  useEffect(() => {
+    if (location.pathname === "/listedBooks") {
+      setTabIndex(0);
+    } else if (location.pathname === "/listedBooks/wishListBooks") {
+      setTabIndex(1);
+    }
+  }, [location]);
 
   return (
     <div>
@@ -13,24 +38,26 @@ const ListedBooks = () => {
       </div>
       <div className="flex justify-between items-center flex-col">
         <div className="inline-flex items-center divide-x rounded bg-[#23BE0A] text-white divide-none">
-          <select className="select w-full max-w-xs bg-[#23BE0A]">
-           
-            <option disabled selected>Sort by</option>
-            <option>Rating</option>
-            <option>Number Of Pages </option>
-            <option>Published Year</option>
-           
+          <select className="select w-full max-w-xs bg-[#23BE0A]" value={sortBy} onChange={handleSortByChange}>
+            <option disabled value=''>
+              Sort by
+            </option>
+            <option value='rating'>Rating</option>
+            <option value='totalPages'>Number Of Pages </option>
+            <option value='publishedYear'>Published Year</option>
           </select>
-          
         </div>
       </div>
       <div className="flex md:justify-start items-center py-10 mx-4 justify-center">
         <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap ">
-          <Link 
-          to='' 
-          onClick={()=>{setTabIndex(0)}}
-            
-            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 rounded-t-lg ${tabIndex===0?'border border-b-0':'border-b'}  border-gray-400 `}
+          <Link
+            to=""
+            onClick={() => {
+              setTabIndex(0);
+            }}
+            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 rounded-t-lg ${
+              tabIndex === 0 ? "border border-b-0" : "border-b"
+            }  border-gray-400 `}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,11 +73,14 @@ const ListedBooks = () => {
             </svg>
             <span>Read Books</span>
           </Link>
-          <Link 
-          to={`wishListBooks`} 
-          onClick={()=>{setTabIndex(1)}}
-           
-            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  ${tabIndex===1?'border border-b-0':'border-b'} rounded-t-lg border-gray-400 `}
+          <Link
+            to={`wishListBooks`}
+            onClick={() => {
+              setTabIndex(1);
+            }}
+            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  ${
+              tabIndex === 1 ? "border border-b-0" : "border-b"
+            } rounded-t-lg border-gray-400 `}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +100,7 @@ const ListedBooks = () => {
         </div>
       </div>
       <div className="px-3">
-      <Outlet/>
+        <Outlet context={[sortBy]} />
       </div>
     </div>
   );
