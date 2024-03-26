@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import "../../assets/style.css";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 const BookDetail = ({ book }) => {
-  const { image, bookName, tags, category, rating,author } = book;
+  const {bookId, image, bookName, tags, category, rating,author } = book;
   return (
-    <div className="max-w-sm p-6 rounded-md shadow-md ">
+    <Link to={`/bookDetail/${bookId}`} className="max-w-sm p-6 shadow-md rounded-xl border-2 border-[#13131326]">
       <img
         src={image}
         alt=""
@@ -31,7 +32,7 @@ const BookDetail = ({ book }) => {
         <p >{category}</p>
         <p className="flex items-center gap-2">{rating}<FaRegStarHalfStroke /></p>
       </div>
-    </div>
+    </Link>
   );
 };
 
