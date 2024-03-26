@@ -3,7 +3,7 @@ import Read from "../Read/Read";
 
 const ReadBooks = () => {
   const [readBooks,setReadBooks]=useState([]);
-  console.log(readBooks);
+  // console.log(readBooks);
   useEffect(()=>{
     const getStoredBooks=JSON.parse(localStorage.getItem('read'))||[];
     setReadBooks(getStoredBooks)
