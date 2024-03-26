@@ -6,7 +6,7 @@ import BookDetail from "../BookDetail/BookDetail";
 export const AllBooks = () => {
   const [allBooks,setAllBooks]=useState([]);
   useEffect(()=>{
-    fetch('/public/AllBooks.json')
+    fetch('./AllBooks.json')
     .then(response=>response.json())
     .then(allBooks=>setAllBooks(allBooks));
     

@@ -1,16 +1,31 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import "../../assets/style.css";
+import { saveReadBooksToLocalStorage, saveWishlistBooksToLocalStorage } from "../../utils/localStorage";
+
+
 
 const SingleBookDetail = () => {
   const books = useLoaderData();
   const { bookId } = useParams();
   const idInt = parseInt(bookId);
   const book = books.find((book) => book.bookId === idInt);
-  console.log(book);
+  // console.log(book);
+
+ 
+  const handleRead = () => {
+  saveReadBooksToLocalStorage(book,bookId)
+}
+
+  
+  const handleWishlist = () => {
+     saveWishlistBooksToLocalStorage(book,bookId)
+  }
+  
+  
   return (
-    <section className="py-6">
-      <div className="container flex  mx-auto lg:flex-row-reverse">
-        <div className="flex flex-col  space-y-2 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 ">
+    <section className="py-6 px-4">
+      <div className="container flex  mx-auto lg:flex-row-reverse flex-col-reverse">
+        <div className="flex flex-col  space-y-2 rounded-sm sm:p-10 lg:p-12 lg:w-1/2 xl:w-2/5 ">
           <h2 className="playfair-display-Bold text-4xl">{book.bookName}</h2>
           <p className="text-xl ">By: {book.author}</p>
           <div className="font-medium ">
@@ -19,12 +34,10 @@ const SingleBookDetail = () => {
               <span className="font-bold">Review</span> :{book.review}
             </p>
           </div>
-          <div className="flex justify-between items-center border-b-2 border-[#13131326] lg:pb-3 pb-1">
+          <div className="flex justify-between items-center border-b-2 border-[#13131326] lg:pb-3 pb-1 flex-col md:flex-row">
             <p className="font-bold">Tag:</p>
             {book.tags.map((tag, index) => (
-              <p
-                className="text-[#23BE0A] px-3 py-1 bg-[#F3F3F3] rounded-2xl"
-                tag={tag}
+              <p className="text-[#23BE0A] px-3 py-1 bg-[#F3F3F3] rounded-2xl"tag={tag}
                 key={index}
               >
                 #{tag}
@@ -80,13 +93,13 @@ const SingleBookDetail = () => {
               </div>
             </div>
             <div className="flex gap-8 items-center">
-            <button className="btn btn-outline">Read</button>
-            <button className="btn bg-[#50B1C9]">Wishlist</button>
+            <button onClick={handleRead} className="btn btn-outline">Read</button>
+            <button onClick={handleWishlist} className="btn bg-[#50B1C9]">Wishlist</button>
             </div>
           </div>
         </div>
         <div className="lg:w-2/3 xl:w-3/5 bg-[#1313130D] rounded-2xl">
-          <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
+          <div className="flex items-center justify-center p-4 md:p-8 lg:p-12 pb-5">
             <img
               src={book.image}
               alt=""
