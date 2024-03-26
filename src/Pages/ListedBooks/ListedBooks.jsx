@@ -24,7 +24,7 @@ const ListedBooks = () => {
           
         </div>
       </div>
-      <div className="flex justify-start items-center py-10">
+      <div className="flex md:justify-start items-center py-10 mx-4 justify-center">
         <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap ">
           <Link 
           to='' 
@@ -69,7 +69,9 @@ const ListedBooks = () => {
           </Link>
         </div>
       </div>
+      <div className="px-3">
       <Outlet/>
+      </div>
     </div>
   );
 };

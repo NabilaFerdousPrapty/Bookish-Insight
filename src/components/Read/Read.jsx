@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Read = ({readBook}) => {
   const {image,bookName,tags,publisher,totalPages,category ,rating}=readBook;
     return (
-        <div className="flex w-full space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl m-4 gap-5">
+        <div className="flex md:flex-row flex-col lg:w-full w-auto space-x-2 sm:space-x-4 border-2 border-[#13131399] p-4 border-opacity-30 rounded-2xl m-4 gap-5">
         <img
           className="flex-shrink-0 md: h-56 md:w-48 sm:w-32 sm:h-32 bg-[#1313130D] "
           src={image}
