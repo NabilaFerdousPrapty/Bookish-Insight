@@ -1,13 +1,9 @@
-
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { scaleOrdinal } from "d3-scale";
 import { schemeCategory10 } from "d3-scale-chromatic";
 import { useEffect, useState } from "react";
 
 const colors = scaleOrdinal(schemeCategory10).range();
-
-
-
 
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
@@ -35,30 +31,36 @@ const PagesChart = () => {
   return (
     <div className="lg:max-w-screen-lg max-w-screen-md  mx-auto lg:px-3">
         <BarChart 
-    width={window.innerWidth > 768 ? 1024 : window.innerWidth * 1}
-    height={window.innerWidth > 768 ? 400 : window.innerWidth * 0.8}
-      data={readBooks}
-      margin={{
-        top: 20,
-        right: 10,
-        left: 10,
-        bottom: 5
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis className='text-xs' dataKey="bookName" />
-      <YAxis />
-      <Bar
-        dataKey="totalPages"
-        fill="#8884d8"
-        shape={<TriangleBar />}
-        label={{ position: "top" }}
-      >
-        {readBooks.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-        ))}
-      </Bar>
-    </BarChart>
+            width={window.innerWidth > 768 ? 1024 : window.innerWidth * 1}
+            height={window.innerWidth > 768 ? 400 : window.innerWidth * 0.8}
+            data={readBooks}
+            margin={{
+                top: 20,
+                right: 10,
+                left: 10,
+                bottom: 5
+            }}
+        >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis className='text-xs' dataKey="bookName" />
+            <YAxis />
+            <Tooltip  
+              contentStyle={window.innerWidth > 768 ? null : { fontSize: '8px', padding: '8px' }} 
+              // contentStyle={{ backgroundColor: 'transparent' }} 
+              // cursor={{ fill: 'transparent' }}
+              // position={{x:-5,y:40}}
+            />
+            <Bar
+                dataKey="totalPages"
+                fill="#8884d8"
+                shape={<TriangleBar />}
+                label={{ position: "top" }}
+            >
+                {readBooks.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                ))}
+            </Bar>
+        </BarChart>
     </div>
   );
 };

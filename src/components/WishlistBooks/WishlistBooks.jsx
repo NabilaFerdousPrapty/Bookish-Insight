@@ -1,22 +1,23 @@
-
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Wishlist from '../Wishlist/Wishlist';
-import { useOutletContext } from 'react-router-dom';
 
-const WishlistBooks = () => {
+// import WishlistBooks from './WishlistBooks';
+
+const WishlistBooks = ({sortBy}) => {
     const [wishlistBooks,setWishlistBook]=useState([]);
     // console.log(wishlistBooks);
-    const [sortBy] = useOutletContext();
+    
     const [displayBooks, setDisplayBooks] = useState([]);
     useEffect(()=>{
       const getWishlistBooks=JSON.parse(localStorage.getItem('wishlist'))||[];
       setWishlistBook(getWishlistBooks);
-      setDisplayBooks(getWishlistBooks);
+      // setDisplayBooks(getWishlistBooks);
+      handleBooksFilter(getWishlistBooks);
     },[]);
-    const handleBooksFilter = (sortBy) => {
+    const handleBooksFilter = (wishlistBooks) => {
         let sortedBooks = [...wishlistBooks];
-      
+      // console.log(sortBy);
         if (sortBy === 'rating') {
           sortedBooks.sort((a, b) => b.rating - a.rating);
           setDisplayBooks([...sortedBooks]);
@@ -26,15 +27,15 @@ const WishlistBooks = () => {
         } else if (sortBy === 'publishedYear') {
           sortedBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
           setDisplayBooks([...sortedBooks]);
-        }else if(sortBy===' '){
+        }else if(sortBy===''){
           setDisplayBooks([...wishlistBooks])
         }
       
         
       }
       useEffect(() => {
-        handleBooksFilter(sortBy);
-      }, [sortBy]);
+        handleBooksFilter(wishlistBooks);
+      }, [sortBy,wishlistBooks]);
     
     return (
         <div>

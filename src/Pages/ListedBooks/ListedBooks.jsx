@@ -1,27 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
+import ReadBooks from "../../components/ReadBooks/ReadBooks";
+import WishlistBooks from "../../components/WishlistBooks/WishlistBooks";
 
 const ListedBooks = () => {
   const location = useLocation();
   const [tabIndex, setTabIndex] = useState(0);
   const [sortBy, setSortBy] = useState('');
-  const [displayBooks,setDisplayBooks]=useState([])
-// console.log(sortBy);
+console.log(sortBy);
   const handleSortByChange = (event) => {
     setSortBy(event.target.value);
   };
-  const handleBooksFilter=(sortBy)=>{
-    if (sortBy=='rating') {
-     const sortedRating=readBooks.sort((a,b)=>b.rating-a.rating);
-     setDisplayBooks(sortedRating);
-    }else if(sortBy=='totalPages'){
-      const sortedPages=readBooks.sort((a,b)=>b.totalPages-a.totalPages);
-      setDisplayBooks(sortedPages)
-    }else if(sortBy =='publishedYear'){
-     const sortedYear=readBooks.sort((a,b)=>b.yearOfPublishing-a.yearOfPublishing);
-     setDisplayBooks(sortedYear)
-    }
-}
+  
 
   useEffect(() => {
     if (location.pathname === "/listedBooks") {
@@ -50,8 +40,8 @@ const ListedBooks = () => {
       </div>
       <div className="flex md:justify-start items-center py-10 mx-4 justify-center">
         <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap ">
-          <Link
-            to=""
+          <button
+            
             onClick={() => {
               setTabIndex(0);
             }}
@@ -72,9 +62,9 @@ const ListedBooks = () => {
               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
             </svg>
             <span>Read Books</span>
-          </Link>
-          <Link
-            to={`wishListBooks`}
+          </button>
+          <button
+           
             onClick={() => {
               setTabIndex(1);
             }}
@@ -96,14 +86,17 @@ const ListedBooks = () => {
               <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
             </svg>
             <span>Wishlist Books</span>
-          </Link>
+          </button>
         </div>
       </div>
       <div className="px-3">
-        <Outlet context={[sortBy]} />
+        {
+          tabIndex===0?<ReadBooks sortBy={sortBy} ></ReadBooks >:<WishlistBooks sortBy={sortBy}></WishlistBooks>
+        }
       </div>
     </div>
   );
 };
 
 export default ListedBooks;
+

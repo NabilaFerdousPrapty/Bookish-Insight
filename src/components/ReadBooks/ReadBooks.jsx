@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import Read from "../Read/Read";
-import { useOutletContext } from "react-router-dom";
-const ReadBooks = () => {
+
+const ReadBooks = ({sortBy}) => {
   const [readBooks, setReadBooks] = useState([]);
-  const [sortBy] = useOutletContext();
+  // console.log(sortBy);
   const [displayBooks, setDisplayBooks] = useState([]);
 
   useEffect(() => {
     const getStoredBooks = JSON.parse(localStorage.getItem('read')) || [];
     setReadBooks(getStoredBooks);
-    setDisplayBooks(getStoredBooks);
+    // setDisplayBooks(getStoredBooks);
+    handleBooksFilter(getStoredBooks);
   }, []);
 
-  const handleBooksFilter = (sortBy) => {
+  const handleBooksFilter = (readBooks) => {
     let sortedBooks = [...readBooks];
-  
+  // console.log(sortBy);
     if (sortBy === 'rating') {
       sortedBooks.sort((a, b) => b.rating - a.rating);
       setDisplayBooks([...sortedBooks]);
@@ -24,7 +25,7 @@ const ReadBooks = () => {
     } else if (sortBy === 'publishedYear') {
       sortedBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
       setDisplayBooks([...sortedBooks]);
-    }else if(sortBy===' '){
+    }else if(sortBy===''){
       setDisplayBooks([...readBooks])
     }
   
@@ -32,8 +33,8 @@ const ReadBooks = () => {
   }
   
   useEffect(() => {
-    handleBooksFilter(sortBy);
-  }, [sortBy]);
+    handleBooksFilter(readBooks);
+  }, [sortBy,readBooks]);
 
   return (
     <div className="border-2 border-[#13131399] p-4 border-opacity-10 rounded-2xl ">
@@ -45,4 +46,5 @@ const ReadBooks = () => {
 };
 
 export default ReadBooks;
+
 
