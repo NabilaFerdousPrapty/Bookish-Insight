@@ -1,0 +1,40 @@
+
+    [
+      {
+        "userName": "Alice Johnson",
+        "reviewText": "I absolutely loved these book! The characters were so well-developed, and the plot kept me hooked from start to finish.",
+        "rating": 5,
+        "designation": "Book Enthusiast",
+        "userImage": "https://i.ibb.co/NZQJGW4/business-man-by-skyscraper.jpg"
+      },
+      {
+        "userName": "David Smith",
+        "reviewText": "A captivating read with unexpected twists and turns. Highly recommended!",
+        "rating": 4,
+        "designation": "Literature Student",
+        "userImage": "https://i.ibb.co/whJLf7Z/portrait-young-bearded-man-reading-book.jpg"
+      },
+      {
+        "userName": "Emily Brown",
+        "reviewText": "As a long-time fan of the author, I had high expectations for this book, and it did not disappoint! Brilliantly written.",
+        "rating": 5,
+        "designation": "Book Blogger",
+        "userImage": "https://i.ibb.co/9Tyn4nh/happy-woman-glasses-standing-wall.jpg"
+      },
+      {
+        "userName": "Jane Doe",
+        "reviewText": "While the premise was intriguing, I found the execution lacking. The pacing felt off, and some characters fell flat.",
+        "rating": 3,
+        "designation": "Casual Reader",
+        "userImage": "https://i.ibb.co/Bg9t1Nb/smiling-lawyer-posing.jpg"
+      },
+      {
+        "userName": "Emma Thompson",
+        "reviewText": "An enjoyable read with well-crafted prose. I couldn't put it down!Way too much addictive but I can't help but continuing",
+        "rating": 4,
+        "designation": "Book Club Member",
+        "userImage": "https://i.ibb.co/KsKJHSc/woman-checking-her-phone.jpg"
+      }
+    ]
+  
+  
