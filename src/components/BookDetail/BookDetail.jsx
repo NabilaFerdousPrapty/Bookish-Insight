@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; 
 import { Link } from "react-router-dom";
 import "../../assets/style.css";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
@@ -13,10 +14,7 @@ const BookDetail = ({ book }) => {
       <div className="mt-6 mb-2 border-dashed border-b-2 border-[#13131326] pb-4">
         <div className="flex text-xs  gap-5 items-center uppercase font-semibold ">
           {tags.map((tag, index) => (
-            <p
-              className="text-[#23BE0A] p-3 bg-[#F3F3F3] rounded-2xl"
-              tag={tag}
-              key={index}
+            <p className="text-[#23BE0A] p-3 bg-[#F3F3F3] rounded-2xl" value={tag} key={index}
             >
               {tag}
             </p>
@@ -37,3 +35,8 @@ const BookDetail = ({ book }) => {
 };
 
 export default BookDetail;
+BookDetail.propTypes={
+  book:PropTypes.object,
+  
+
+}

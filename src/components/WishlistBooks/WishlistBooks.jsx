@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Wishlist from '../Wishlist/Wishlist';
-
+import PropTypes from 'prop-types';
 // import WishlistBooks from './WishlistBooks';
 
 const WishlistBooks = ({sortBy}) => {
@@ -47,3 +47,7 @@ const WishlistBooks = ({sortBy}) => {
 };
 
 export default WishlistBooks;
+
+WishlistBooks.propTypes={
+  sortBy:PropTypes.string
+}

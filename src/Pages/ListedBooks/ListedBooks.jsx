@@ -7,7 +7,7 @@ const ListedBooks = () => {
   const location = useLocation();
   const [tabIndex, setTabIndex] = useState(0);
   const [sortBy, setSortBy] = useState('');
-console.log(sortBy);
+// console.log(sortBy);
   const handleSortByChange = (event) => {
     setSortBy(event.target.value);
   };

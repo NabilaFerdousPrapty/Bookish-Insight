@@ -1,6 +1,6 @@
 
 import { MdOutlineStar } from "react-icons/md";
-import { useNavigation } from "react-router-dom";
+import PropTypes from 'prop-types';
 import Loader from "../Loader/Loader";
 import { useEffect } from "react";
 const SingleReview = ({reviews,isLoading,setIsLoading}) => {
@@ -32,7 +32,7 @@ const SingleReview = ({reviews,isLoading,setIsLoading}) => {
 				</p>
 			</div>
 			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-[#23BE0A] text-gray-50">
-				<img src={userImage} alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300" />
+				<img src={userImage} alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full  bg-gray-300" />
 				<p className="text-xl font-semibold leading-tight">{userName}</p>
 				<p className="text-sm uppercase py-1">{designation}</p>
 				<p className="text-sm uppercase flex items-center gap-2">Given rating:{rating}<MdOutlineStar /></p>
@@ -46,3 +46,8 @@ const SingleReview = ({reviews,isLoading,setIsLoading}) => {
 };
 
 export default SingleReview;
+SingleReview.propTypes={
+	reviews:PropTypes.object,
+	isLoading:PropTypes.bool,
+	setIsLoading:PropTypes.func
+}

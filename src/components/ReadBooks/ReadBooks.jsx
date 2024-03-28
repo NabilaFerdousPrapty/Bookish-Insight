@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Read from "../Read/Read";
-
+import PropTypes from 'prop-types'; 
 const ReadBooks = ({sortBy}) => {
   const [readBooks, setReadBooks] = useState([]);
   // console.log(sortBy);
@@ -47,4 +47,8 @@ const ReadBooks = ({sortBy}) => {
 
 export default ReadBooks;
 
+ReadBooks.propTypes={
+  sortBy:PropTypes.string,
+  
 
+}

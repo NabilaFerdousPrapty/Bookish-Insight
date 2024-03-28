@@ -67,31 +67,31 @@ bookish-insight/
 │
 └── src/
     ├── components/
-    │   ├── Navbar.js
+    │   ├── AllBooks.js
     │   ├── Banner.js
-    │   ├── BookCard.js
+    │   ├── Loader.js
     │   ├── BookDetails.js
-    │   ├── ReadPage.js
-    │   ├── ListedBooksPage.js
-    │   ├── NotFoundPage.js
+    │   ├── Read.js
+    │   ├── Wishlist.js
+    │   ├── Review.js
     │   └── ...
     │
     ├── data/
     │   ├── books.json
     │   └── reviews.json
     │
-    ├── styles/
-    │   ├── Navbar.css
-    │   ├── Banner.css
-    │   ├── BookCard.css
-    │   ├── BookDetails.css
-    │   ├── ReadPage.css
-    │   ├── ListedBooksPage.css
-    │   ├── App.css
+    ├── Pages/
+    │   ├── Error.js
+    │   ├── Home.js
+    │   ├── Reviews.js
+    │   ├── Shared.js
+    │   ├── PagesToRead.js
+    │   ├── SubscribeToUs.js
+    │   ├── SingleBookDetail.js
     │   └── ...
     │
-    ├── App.js
-    ├── index.js
+    ├── MainLayout.js
+    ├── main.js
     └── ...
 ```
 
