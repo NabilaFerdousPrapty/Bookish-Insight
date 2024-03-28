@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SingleReview from "../../components/Review/SingleReview";
 import { MdRateReview } from "react-icons/md";
 import "../../assets/style.css";
-import Loader from "../../components/Loader/Loader";
+
 
 const Review = () => {
   const [firstReview, setFirstReview] = useState(null);

@@ -89,7 +89,7 @@ console.log(sortBy);
           </button>
         </div>
       </div>
-      <div className="px-3">
+      <div className="px-3 pb-7">
         {
           tabIndex===0?<ReadBooks sortBy={sortBy} ></ReadBooks >:<WishlistBooks sortBy={sortBy}></WishlistBooks>
         }

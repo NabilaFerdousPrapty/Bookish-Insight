@@ -29,7 +29,7 @@ const Navbar = () => {
          <li className='navBar'><NavLink  to='/listedBooks'>Listed Books</NavLink></li>
          <li className='navBar'><NavLink to='/PagesToRead'>Pages to Read</NavLink></li>
          <li className='navBar'><NavLink to='/Reviews' >All Reviews</NavLink></li>
-         <li className='navBar'><NavLink to='/subscribe'>Subscribe for more</NavLink></li>
+         <li className='navBar'><NavLink to='/subscribe'>Subscribe Us</NavLink></li>
          
             <li>
             <button  className="btn bg-[#23BE0A] text-white">Sign In</button>
@@ -46,7 +46,7 @@ const Navbar = () => {
          <li className='navBar'><NavLink to='/listedBooks'>Listed Books</NavLink></li>
          <li className='navBar'><NavLink to='/PagesToRead'>Pages to Read</NavLink></li>
          <li className='navBar'><NavLink to='/Reviews' >All Reviews</NavLink></li>
-         <li className='navBar'><NavLink to='/subscribe'>Subscribe for more</NavLink></li>
+         <li className='navBar'><NavLink to='/subscribe'>Subscribe Us</NavLink></li>
         
 
         </ul>
